@@ -32,6 +32,11 @@ public class Employee {
 	
 	public static void main(String[] args) {
 		List<Employee> list = new ArrayList<Employee>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			{
 				add(new Employee("Joe", 50000));
 				add(new Employee("Jim", 75000));
@@ -43,9 +48,28 @@ public class Employee {
 				add(new Employee("Rich", 88000));
 			}
 		};
+		List<Employee> ls = list.stream()
+				.sorted(
+							new Comparator<Employee>() {
+	
+								@Override
+								public int compare(Employee o1, Employee o2) {
+	
+									if (o1.name.equals(o2.name) && o1.salary == o2.salary)
+										return 0;
+									
+									if (o1.name.equals(o2.name)) {
+										return o2.salary - o1.salary;
+									}else {
+										return o1.name.compareTo(o2.name);
+									}
+								}
+							}
+						)
+				.collect(Collectors.toList());
 		//expected output:
 		//[[Jim, 100000], [Jim, 75000], [Jim, 70000], [Joe, 59000], [Joe, 50000], [Rich, 88000], [Steve, 55000], [Tom, 80000]]
-		System.out.println(/*implement */);
+		System.out.println(ls);
 	}
 }
 
