@@ -3,8 +3,6 @@ package lab9.part1.prob1;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import dataaccess.DataAccess;
-import dataaccess.DataAccessFacade;
 
 public class Main {
 
