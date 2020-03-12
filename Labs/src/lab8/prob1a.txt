@@ -1,0 +1,5 @@
+1. a
+
+i. No parameter, free variables are s, t
+
+ii. Parameters are s and t, free variable is ignoreCase
