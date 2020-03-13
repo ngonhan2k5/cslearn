@@ -7,7 +7,9 @@ public class Problem {
 	//Returns a list of those strings which belong to both of the two input lists
 	public static List<String> elementsInBoth(List<String> list1, List<String> list2) {
 		//implement
-		return null;
+		return list1.stream()
+				.filter(i->list2.contains(i))
+				.collect(Collectors.toList());
 	}
 	
 	//Returns a list, in sorted order, of the zipcodes, of those Customers 
@@ -16,7 +18,12 @@ public class Problem {
 	//duplicate elements.
 	public static List<String> getZipsOfSpecialCustomers(List<Customer> list) {
 		//implement
-		return null;
+		return list.stream()
+				.filter(i->i.getCity().length()>=0 && !i.getCity().contains("e"))
+				.map(Customer::getZip)
+				.sorted()
+				.distinct()
+				.collect(Collectors.toList());
 	}
 	
 	

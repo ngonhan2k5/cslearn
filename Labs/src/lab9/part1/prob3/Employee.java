@@ -49,23 +49,10 @@ public class Employee {
 			}
 		};
 		List<Employee> ls = list.stream()
-				.sorted(
-							new Comparator<Employee>() {
-	
-								@Override
-								public int compare(Employee o1, Employee o2) {
-	
-									if (o1.name.equals(o2.name) && o1.salary == o2.salary)
-										return 0;
-									
-									if (o1.name.equals(o2.name)) {
-										return o2.salary - o1.salary;
-									}else {
-										return o1.name.compareTo(o2.name);
-									}
-								}
-							}
-						)
+				.sorted( 
+						Comparator.comparing(Employee::getName)
+						.thenComparing( Comparator.comparing(Employee::getSalary).reversed())
+				)
 				.collect(Collectors.toList());
 		//expected output:
 		//[[Jim, 100000], [Jim, 75000], [Jim, 70000], [Joe, 59000], [Joe, 50000], [Rich, 88000], [Steve, 55000], [Tom, 80000]]

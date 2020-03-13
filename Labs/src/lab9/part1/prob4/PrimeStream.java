@@ -3,17 +3,30 @@ package lab9.part1.prob4;
 import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
-public class Main {
+public class PrimeStream {
 
 	public static void main(String[] args) {
-		
-		final Stream<Integer> primes = Stream.iterate(1, Main::nextPrime)
+		// Prob 4A
+		final Stream<Integer> primes = Stream.iterate(1, PrimeStream::nextPrime)
 				.limit(10);
 		
 		primes.forEach(System.out::println);
+		System.out.println("====");
+		
+		// Prob 4B
+		PrimeStream ps = new PrimeStream(); //PrimeStream is enclosing class
+		ps.printFirstNPrimes(10);
+		System.out.println("====");
+		ps.printFirstNPrimes(5);
 	}
 	
-	static boolean isPrime(int n)  
+	public void printFirstNPrimes(long n) {
+		Stream.iterate(1, PrimeStream::nextPrime)
+				.limit(n)
+				.forEach(System.out::println);
+	}
+	
+	private static boolean isPrime(int n)  
     {  
         // Corner cases  
         if (n <= 1) return false;  
