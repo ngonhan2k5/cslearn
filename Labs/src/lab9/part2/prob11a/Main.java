@@ -18,7 +18,13 @@ public class Main {
 		                  new Employee("Alice", "Richards", 101000),
 		                  new Employee("Donald", "Trump", 100000));
 		
-		  System.out.println(/*implement */);
+		System.out.println(/*implement */
+				  emps.stream().filter(e -> e.getSalary() > 100000)
+				  .filter(e -> e.getLastName().charAt(0) > 'M')
+				  .map(e -> e.getFirstName() + " " + e.getLastName())
+				  .sorted()
+				  .collect(Collectors.toList())
+				  );
 				               
 		  
 
