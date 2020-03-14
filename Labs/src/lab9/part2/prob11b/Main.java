@@ -17,6 +17,12 @@ public class Main {
 		                  new Employee("Donald", "Trump", 100000));
 		
 		
+		
+				
+		System.out.println(/*implement */
+				LambdaLibrary.func.apply(list)
+				);
+				
 	}
 
 }

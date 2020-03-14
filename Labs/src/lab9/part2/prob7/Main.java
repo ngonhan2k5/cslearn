@@ -26,7 +26,7 @@ public class Main {
 
 		System.out.println(
 				list.stream()
-				.sorted(Comparator.comparingInt(x -> Math.abs((int) x))
+				.sorted(Comparator.comparingInt(x -> (Integer)Math.abs( (int) x))
 						.thenComparingInt(x -> (Integer) x))
 						.collect(Collectors.toList()));
 	}

@@ -20,7 +20,7 @@ public class Main {
 		
 		System.out.println(/*implement */
 				  emps.stream().filter(e -> e.getSalary() > 100000)
-				  .filter(e -> e.getLastName().charAt(0) > 'M')
+				  .filter(e -> e.getLastName().matches("[N-Z]*"))
 				  .map(e -> e.getFirstName() + " " + e.getLastName())
 				  .sorted()
 				  .collect(Collectors.toList())
