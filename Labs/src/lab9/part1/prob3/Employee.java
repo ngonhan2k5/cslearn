@@ -51,6 +51,7 @@ public class Employee {
 		List<Employee> ls = list.stream()
 				.sorted( 
 						Comparator.comparing(Employee::getName)
+						
 						.thenComparing( Comparator.comparing(Employee::getSalary).reversed())
 				)
 				.collect(Collectors.toList());
